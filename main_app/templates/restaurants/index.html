@@ -1,21 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Restaurant List</h1>
+<h1>Visit, Eat, Post, Review!</h1>
 
-{% for restaurant in restaurants %}
   <div class="card">
     <div class="card-content">
       <span class="card-title">{{ restaurant.name }}</span>
-      <p>Breed: {{ restaurant.breed }}</p>
-      <p>Description: {{ restaurant.description }}</p>
-      {% if restaurant.age > 0 %}
-        <p>Age: {{ restaurant.age }}</p>
-      {% else %}
-        <p>Age: Kitten</p>
-      {% endif %}
+      <p>Address: {{ restaurant.address }}</p>
+      <p>Neighborhood: {{ restaurant.neighborhood }}</p>
+      <p>Cuisine: {{ restaurant.cuisine }}</p>
     </div>
   </div>
-{% endfor %}
 
 {% endblock %}
