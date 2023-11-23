@@ -1,8 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 # Import restaurant model
 from .models import Restaurant
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+# AS NEW VIEW FUNCTIONS ARE ADDED, MAKE SURE TO ADD THE @LOGIN_REQUIRED DECORATOR
+# AND FOR CLASS-BASED VIEW FUNCTIONS, ADD THE   LoginRequiredMixin as the function's first parameter 
 
 # Define the home view
 def home(request):
@@ -14,6 +19,7 @@ def about(request):
   return render(request, 'about.html')
 
 # restaurants view
+@login_required
 def restaurants_index(request):
   restaurants = Restaurant.objects.all()
   return render(request, 'restaurants/index.html', {
