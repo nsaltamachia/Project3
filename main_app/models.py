@@ -13,8 +13,8 @@ class Restaurant(models.Model):
     neighborhood = models.TextField(max_length=150)
     cuisine = models.TextField(max_length=150)
     # foreign key linking user to instance (auth)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    #user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
 
 # change instance method
-def __str__(self):
-    return f'{self.name} ({self.id})'
+    def __str__(self):
+        return f'{self.name} ({self.id})'
